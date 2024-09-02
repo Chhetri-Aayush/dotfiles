@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =6
+let g:netrw_dirhist_6='/home/ac/Documents/demo'
+let g:netrw_dirhist_5='/home/ac/Documents/demo/vimtest/src'
+let g:netrw_dirhist_4='/home/ac/Documents/demo/vimtest'
+let g:netrw_dirhist_3='/home/ac/Documents/Event_Management_System/Frontend/src'
+let g:netrw_dirhist_2='/home/ac/Documents/demo/js'
+let g:netrw_dirhist_1='/home/ac/Documents/Event_Management_System/Frontend/src'
+let g:netrw_dirhist_0='/home/ac/Documents/Event_Management_System/Frontend'
+let g:netrw_dirhist_9='/home/ac/Documents/demo/demo'
+let g:netrw_dirhist_8='/home/ac/Documents/demo/js'
+let g:netrw_dirhist_7='/home/ac/Documents/demo'

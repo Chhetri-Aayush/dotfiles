@@ -1,0 +1,7 @@
+{
+  "suggest.noselect": false,
+  "suggest.enablePreselect": true,
+  "suggest.snippetIndicator": "",
+  "coc.preferences.formatOnSaveFiletypes": ["javascript", "typescript", "python", "html", "css"]
+}
+
