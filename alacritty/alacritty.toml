@@ -1,0 +1,11 @@
+[window]
+decorations = "None"
+startup_mode = "Maximized"
+#startup_mode = "Fullscreen"
+padding = {x=10,y=10}
+#opacity = 0.8
+#blur = true
+
+[font]
+normal = { family = "Iosevka Nerd Font" , style ="Regular"}
+size = 13 
