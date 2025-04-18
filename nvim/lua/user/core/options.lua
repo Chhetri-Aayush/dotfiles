@@ -3,46 +3,45 @@ vim.cmd("let g:netrw_liststyle = 3")
 local opt = vim.opt
 
 opt.relativenumber = true
-opt.number= true
+opt.number = true
 
---formatting
+-- indentation
 opt.autoindent = true
 opt.smartindent = true
-
---search settings
-opt.ignorecase = true 
-opt.smartcase= true
-opt.hlsearch =false 
+opt.shiftwidth = 4
+opt.tabstop = 4
 
 --remove swp files
-opt.swapfile=false
-
---themes and other colors
-opt.termguicolors = true
-opt.background = "dark"
-
-opt.cursorline=true
-
---add clipboard and make it possible to yank it 
-opt.clipboard:append("unnamedplus") 
+opt.swapfile = false
 
 --add splits in nvim
 opt.splitright = true
 opt.splitbelow = true
 
 -- Set cursor shape to block in Insert mode
-opt.guicursor = 'i:block'
+opt.guicursor = "i:block"
 
--- set the format options to jql or anything except cro
--- vim.api.nvim_create_autocmd({"BufEnter","BufWinEnter","BufRead","BufNewFile"}, {
---   pattern = '*',
---   command = 'setlocal formatoptions-=c formatoptions-=r formatoptions-=o', -- removes cro  from the format options leaving rest the same 
--- })
+--wrapping
+-- opt.wrap = true
+-- opt.textwidth = 80
+-- opt.colorcolumn = "80"
 
--- THE BELOW CODE IS GIVEN BY MY FRINED WHICH USES CALLBACK INSTEAD OF COMMAND
-vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter", "BufRead", "BufNewFile"}, {
-    pattern = "*",
-    callback = function()
-        vim.opt.formatoptions = "jql" --sets the format options to jql only 
-    end,
-})
+--horizontal line at the cursor
+opt.cursorline = true
+
+--add clipboard and make it possible to yank it
+opt.clipboard:append("unnamedplus")
+
+--searching
+opt.ignorecase = true
+opt.smartcase = true
+vim.opt.hlsearch = false
+vim.opt.incsearch = true
+
+--256 bit color support
+vim.opt.termguicolors = true
+
+--background color
+opt.background = "dark"
+
+vim.opt.signcolumn = "yes"
