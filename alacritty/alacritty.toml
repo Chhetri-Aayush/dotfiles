@@ -1,0 +1,13 @@
+[window]
+decorations = "None"
+startup_mode = "Maximized"
+# startup_mode = "Fullscreen"
+padding = {x=10,y=4}
+#opacity = 0.8
+#blur = true
+
+[font]
+normal = { family = "Iosevka Nerd Font" , style ="Regular"}
+size = 13
+#for the i3wm
+# size = 9
