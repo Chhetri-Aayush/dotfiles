@@ -7,24 +7,14 @@ return {
 		{ "folke/neodev.nvim", opts = {} },
 	},
 	config = function()
-		-- import lspconfig plugin
 		local lspconfig = require("lspconfig")
-
-		-- import mason_lspconfig plugin
+		local mason = require("mason")
 		local mason_lspconfig = require("mason-lspconfig")
-
-		-- import cmp-nvim-lsp plugin
 		local cmp_nvim_lsp = require("cmp_nvim_lsp")
+		local keymap = vim.keymap
 
-		-- similary this is out of order cause it is used at the bottom ..
-		-- vim.diagnostic.config({
-		--   virtual_text = true,
-		--   signs = true,
-		--   underline = true,
-		--   update_in_insert = false,
-		--   severity_sort = true,
-		-- })
-		local keymap = vim.keymap -- for conciseness
+		mason.setup()
+		mason_lspconfig.setup()
 
 		vim.api.nvim_create_autocmd("LspAttach", {
 			group = vim.api.nvim_create_augroup("UserLspConfig", {}),
@@ -93,14 +83,6 @@ return {
 		-- used to enable autocompletion (assign to every lsp server config)
 		local capabilities = cmp_nvim_lsp.default_capabilities()
 
-		-- Change the Diagnostic symbols in the sign column (gutter)
-		-- this is dpereacted the vim.fn.sign_define so for now it is out of order...
-		--     local signs = { Error = "E", Warn = "W ", Hint = "H", Info = " "
-		--     for type, icon in pairs(signs) do
-		--       local hl = "DiagnosticSign" .. type
-		--       vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
-		--     end
-
 		local signs = { Error = "E", Warn = "W", Hint = "H", Info = " " }
 		vim.diagnostic.config({
 			virtual_text = true,
@@ -117,34 +99,27 @@ return {
 			underline = true,
 			update_in_insert = false,
 		})
-
-		mason_lspconfig.setup_handlers({
-			-- default handler for installed servers
-			function(server_name)
-				lspconfig[server_name].setup({
-					capabilities = capabilities,
-				})
-			end,
-			["lua_ls"] = function()
-				-- configure lua server (with special settings)
-				lspconfig["lua_ls"].setup({
-					capabilities = capabilities,
-					settings = {
-						Lua = {
-							-- make the language server recognize "vim" global
-							diagnostics = {
-								globals = { "vim" },
-								-- disable = "missing_fields",
-								-- missing_parameters = false,
-								disable = { "missing-parameters", "missing-fields" },
-							},
-							completion = {
-								callSnippet = "Replace",
-							},
-						},
+		lspconfig.lua_ls.setup({
+			capabilities = capabilities,
+			settings = {
+				Lua = {
+					runtime = {
+						version = "LuaJIT",
 					},
-				})
-			end,
+					diagnostics = {
+						globals = { "vim", "require" },
+						disable = { "missing-parameters", "missing-fields" },
+					},
+					workspace = {
+						library = vim.api.nvim_get_runtime_file("", true),
+						checkThirdParty = false, -- disable annoying prompts
+					},
+					completion = {
+						callSnippet = "Replace",
+					},
+					telemetry = { enable = false },
+				},
+			},
 		})
 	end,
 }

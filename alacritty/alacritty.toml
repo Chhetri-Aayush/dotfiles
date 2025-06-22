@@ -8,6 +8,6 @@ padding = {x=10,y=4}
 
 [font]
 normal = { family = "Iosevka Nerd Font" , style ="Regular"}
-size = 13
+size = 11.5
 #for the i3wm
 # size = 9
