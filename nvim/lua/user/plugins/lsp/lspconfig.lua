@@ -99,7 +99,8 @@ return {
 			underline = true,
 			update_in_insert = false,
 		})
-		lspconfig.lua_ls.setup({
+		vim.lsp.enable("lua_ls")
+		vim.lsp.config("lua_ls", {
 			capabilities = capabilities,
 			settings = {
 				Lua = {
@@ -107,7 +108,8 @@ return {
 						version = "LuaJIT",
 					},
 					diagnostics = {
-						globals = { "vim", "require" },
+						-- globals = { "vim", "require" },
+						globals = { "vim" },
 						disable = { "missing-parameters", "missing-fields" },
 					},
 					workspace = {
@@ -120,6 +122,39 @@ return {
 					telemetry = { enable = false },
 				},
 			},
+		})
+
+		-- lspconfig.lua_ls.setup({
+		-- 	capabilities = capabilities,
+		-- 	settings = {
+		-- 		Lua = {
+		-- 			runtime = {
+		-- 				version = "LuaJIT",
+		-- 			},
+		-- 			diagnostics = {
+		-- 				-- globals = { "vim", "require" },
+		-- 				globals = { "vim" },
+		-- 				disable = { "missing-parameters", "missing-fields" },
+		-- 			},
+		-- 			workspace = {
+		-- 				library = vim.api.nvim_get_runtime_file("", true),
+		-- 				checkThirdParty = false, -- disable annoying prompts
+		-- 			},
+		-- 			completion = {
+		-- 				callSnippet = "Replace",
+		-- 			},
+		-- 			telemetry = { enable = false },
+		-- 		},
+		-- 	},
+		-- })
+		lspconfig.pyright.setup({
+			before_init = function(_, config)
+				config.settings = {
+					python = {
+						pythonPath = "/home/profax/ml-env/bin/python",
+					},
+				}
+			end,
 		})
 	end,
 }

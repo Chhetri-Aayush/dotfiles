@@ -28,7 +28,7 @@ opt.guicursor = "i:block"
 
 --horizontal line at the cursor
 opt.cursorline = true
-
+-- vim.api.nvim_set_hl(0, "CursorLine", { bg = "#DDC7A1" })
 --add clipboard and make it possible to yank it
 opt.clipboard:append("unnamedplus")
 

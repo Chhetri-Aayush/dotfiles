@@ -1,21 +1,30 @@
 return {
-	-- base gruvbox
+	-- gruvdark
 	{
-		"ellisonleao/gruvbox.nvim",
+		"darianmorat/gruvdark.nvim",
 		lazy = false,
 		priority = 1000,
 		config = function()
-			require("gruvbox").setup({
-				-- this dim_inactive adn the transparent_mode is just so that it won't throw errors like it is ..you can remove it
-				dim_inactive = false,
-				transparent_mode = false,
-				overrides = {
-					SignColumn = { bg = "#282828" },
-				},
-			})
-			vim.cmd("colorscheme gruvbox")
+			vim.cmd("colorscheme gruvdark")
 		end,
 	},
+	-- base gruvbox
+	-- {
+	-- 	"ellisonleao/gruvbox.nvim",
+	-- 	lazy = false,
+	-- 	priority = 1000,
+	-- 	config = function()
+	-- 		require("gruvbox").setup({
+	-- 			-- this dim_inactive adn the transparent_mode is just so that it won't throw errors like it is ..you can remove it
+	-- 			dim_inactive = false,
+	-- 			transparent_mode = false,
+	-- 			overrides = {
+	-- 				SignColumn = { bg = "#282828" },
+	-- 			},
+	-- 		})
+	-- 		vim.cmd("colorscheme gruvbox")
+	-- 	end,
+	-- },
 	-- rose-pine
 	-- {
 	-- 	"rose-pine/neovim",
