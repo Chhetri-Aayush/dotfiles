@@ -7,7 +7,8 @@ padding = {x=10,y=4}
 #blur = true
 
 [font]
-normal = { family = "Iosevka Nerd Font" , style ="Regular"}
+normal = { family = "Iosevka Nerd Font" , style ="SemiBold"}
+#bold={style ="Bold"}
 size = 11.5
 #for the i3wm
 # size = 9

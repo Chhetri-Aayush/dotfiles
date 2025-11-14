@@ -25,3 +25,8 @@ vim.keymap.set("n", "J", "<cmd>cprev<CR>")
 -- to close the buffer when i want without with the keybindings
 -- vim.keymap.set("n", "<leader>bd", ":bd<CR>", { noremap = true, silent =true})
 vim.keymap.set("n", "<leader>bd", ":q<CR>", { noremap = true, silent = true })
+
+-- for the quickfix
+vim.keymap.set("n", "]q", ":cnext<CR>")
+vim.keymap.set("n", "[q", ":cprev<CR>")
+vim.keymap.set("n", "<leader>qq", ":cclose<CR>")

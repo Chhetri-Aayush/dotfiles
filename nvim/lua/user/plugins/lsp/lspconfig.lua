@@ -53,6 +53,10 @@ return {
 				opts.desc = "Smart rename"
 				keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts) -- smart rename
 
+				keymap.set("n", "<leader>qf", function()
+					vim.diagnostic.setqflist()
+				end, { desc = "send all the error sin the quick fix list" })
+
 				keymap.set(
 					"n",
 					"<leader>D",
@@ -99,7 +103,7 @@ return {
 			underline = true,
 			update_in_insert = false,
 		})
-		vim.lsp.enable("lua_ls")
+		-- vim.lsp.enable("lua_ls")
 		vim.lsp.config("lua_ls", {
 			capabilities = capabilities,
 			settings = {
@@ -124,30 +128,7 @@ return {
 			},
 		})
 
-		-- lspconfig.lua_ls.setup({
-		-- 	capabilities = capabilities,
-		-- 	settings = {
-		-- 		Lua = {
-		-- 			runtime = {
-		-- 				version = "LuaJIT",
-		-- 			},
-		-- 			diagnostics = {
-		-- 				-- globals = { "vim", "require" },
-		-- 				globals = { "vim" },
-		-- 				disable = { "missing-parameters", "missing-fields" },
-		-- 			},
-		-- 			workspace = {
-		-- 				library = vim.api.nvim_get_runtime_file("", true),
-		-- 				checkThirdParty = false, -- disable annoying prompts
-		-- 			},
-		-- 			completion = {
-		-- 				callSnippet = "Replace",
-		-- 			},
-		-- 			telemetry = { enable = false },
-		-- 		},
-		-- 	},
-		-- })
-		lspconfig.pyright.setup({
+		vim.lsp.config("pyright", {
 			before_init = function(_, config)
 				config.settings = {
 					python = {

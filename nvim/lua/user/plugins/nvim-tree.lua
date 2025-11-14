@@ -57,6 +57,13 @@ return {
 			},
 		})
 
+		require("nvim-web-devicons").set_icon({
+			css = {
+				icon = "󰌜",
+				-- color = "#f031c",
+				name = "Css",
+			},
+		})
 		-- Set keymaps
 		local keymap = vim.keymap -- For conciseness
 
