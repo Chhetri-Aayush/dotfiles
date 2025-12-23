@@ -7,7 +7,7 @@ return {
 		{ "folke/neodev.nvim", opts = {} },
 	},
 	config = function()
-		local lspconfig = require("lspconfig")
+		-- local lspconfig = require("lspconfig")
 		local mason = require("mason")
 		local mason_lspconfig = require("mason-lspconfig")
 		local cmp_nvim_lsp = require("cmp_nvim_lsp")
@@ -132,7 +132,7 @@ return {
 			before_init = function(_, config)
 				config.settings = {
 					python = {
-						pythonPath = "/home/profax/ml-env/bin/python",
+						pythonPath = "/home/ac/.cache/pypoetry/virtualenvs/telecommunication-1XwZR-Wc-py3.12 ",
 					},
 				}
 			end,

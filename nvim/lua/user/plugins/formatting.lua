@@ -1,3 +1,17 @@
+local function has_config_file(bufnr, filename)
+	local root = vim.fs.root(bufnr, { ".git", "package.json" })
+	if not root then
+		return false
+	end
+	for _, name in ipairs(filename) do
+		if vim.uv.fs_stat(root .. "/" .. name) then
+			return true
+		end
+	end
+
+	return false
+end
+
 return {
 	"stevearc/conform.nvim",
 	event = { "BufReadPre", "BufNewFile" },
@@ -5,10 +19,38 @@ return {
 		local conform = require("conform")
 		conform.setup({
 			formatters_by_ft = {
-				javascript = { "prettier" },
-				typescript = { "prettier" },
-				javascriptreact = { "prettier" },
-				typescriptreact = { "prettier" },
+				javascript = function(bufnr)
+					if has_config_file(bufnr, { "biome.json" }) then
+						return { "biome" }
+					else
+						return { "prettier" }
+					end
+				end,
+
+				typescript = function(bufnr)
+					if has_config_file(bufnr, { "biome.json" }) then
+						return { "biome" }
+					else
+						return { "prettier" }
+					end
+				end,
+				javascriptreact = function(bufnr)
+					if has_config_file(bufnr, { "biome.json" }) then
+						return { "biome" }
+					else
+						return { "prettier" }
+					end
+				end,
+				typescriptreact = function(bufnr)
+					if has_config_file(bufnr, { "biome.json" }) then
+						return { "biome" }
+					else
+						return { "prettier" }
+					end
+				end,
+				-- typescript = { "prettier" },
+				-- javascriptreact = { "prettier" },
+				-- typescriptreact = { "prettier" },
 				css = { "prettier" },
 				html = { "prettier" },
 				json = { "prettier" },

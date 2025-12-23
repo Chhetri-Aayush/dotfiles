@@ -32,6 +32,9 @@ return {
 				"tailwindcss",
 				"lua_ls",
 				"pyright",
+				"ts_ls",
+				"emmet_ls",
+				"clangd",
 			},
 			automatic_installation = true,
 			-- automatic_enable = false,
@@ -45,7 +48,7 @@ return {
 				"black",
 				"pylint",
 				"eslint_d",
-				-- "clang_format",
+				"clang-format",
 			},
 		})
 	end,
