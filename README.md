@@ -26,3 +26,13 @@ For the zsh
 rm -rf ~/.zshrc
 ln -s ~/Documents/dotfiles/zsh/.zshrc ~/.zshrc
 ```
+
+For the vscode
+
+```bash
+rm -rf ~/.config/Code/User/*.json
+rm -rf ~/.config/Code/User/snippets
+ln -s ~/Documents/dotfiles/vscode/settings.json ~/.config/Code/User/settings.json
+ln -s ~/Documents/dotfiles/vscode/keybindings.json ~/.config/Code/User/keybindings.json
+ln -s ~/Documents/dotfiles/vscode/snippets ~/.config/Code/User/snippets
+```

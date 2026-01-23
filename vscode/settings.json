@@ -1,0 +1,40 @@
+{
+  "chat.viewSessions.orientation": "stacked",
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "terminal.integrated.fontSize": 12,
+  "workbench.colorTheme": "Gruvbox Dark Hard",
+  "workbench.productIconTheme": "fluent-icons",
+  "editor.fontSize": 12.5,
+
+  "vim.leader": "<space>",
+  "vim.useSystemClipboard": true,
+  "vim.insertModeKeyBindings": [
+    {
+      "before": ["j", "j"],
+      "after": ["<Esc>"],
+    },
+  ],
+  "vim.handleKeys": {
+    "<C-w>": false,
+  },
+  "vim.normalModeKeyBindings": [
+    {
+      "before": ["<space>", "f", "f"],
+      "commands": ["workbench.action.quickOpen"],
+    },
+
+    {
+      "before": ["<space>", "e", "e"],
+      "commands": ["workbench.action.toggleSidebarVisibility"],
+      // "commands": ["workbench.view.explorer"],
+    },
+
+    // {
+    //   "before": ["<leader>", "f", "g"],
+    //   "commands": ["workbench.action.findInFiles"],
+    // },
+  ],
+  "chat.editor.fontSize": 13,
+  "terminal.integrated.hideOnStartup": "always",
+}
